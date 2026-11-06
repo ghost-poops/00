@@ -1,51 +1,135 @@
 <!DOCTYPE html>
-<html><head>
-<title>PS4  Exploit Host by GamerHack</title>
-<link rel="stylesheet" href="style.css">
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>ASO GAMEING CHAMCHAML - PS4 Exploit Host</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+        background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #ffffff;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .glass-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+    }
+    h1#msgs {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+    }
+    .subtitle {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-bottom: 30px;
+    }
+    .btn-multi {
+        background: linear-gradient(135deg, #0284c7, #2563eb);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 16px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        margin-top: 10px;
+    }
+    .btn-multi:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+        background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    }
+    .contact-info {
+        margin-top: 35px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+    .contact-title {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #64748b;
+        margin-bottom: 10px;
+    }
+    .phone-numbers {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #e2e8f0;
+    }
+    .phone-numbers span {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+</style>
 </head>
 <body>
-<script>
-var histlength=history.length;history.go(-histlength 2);
-</script>
-<h1 id=msgs>PS4  Exploit Host by GamerHack</h1>
-<hr>
-<br>
-<div id=menu>
-<h1 style="font-size: 18px;color: yellow;">Select Your Firmware</h1>
-<button class="btn btn-multi" onmouseover="msgs.innerHTML='PS4 GoldHEN Host for 5.05 and 7.00 to 14.00 FW - (Auto Exploit Selection)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('g2all/index.html')"> GoldHEN Multi FW </button>
-<button class="btn" onmouseover="msgs.innerHTML='PS4 5.05 FW Host v2.5'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('505/index.html')"> 5.05 FW v2.5 </button>
-<a href="672goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW GoldHEN Host'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 6.72 FW GoldHEN </button></a>
-<a href="672/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 6.72 FW Host v3.0'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 6.72 FW v3.0 </button></a>
-<br>
-<a href="900goldhen/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW GoldHEN Host - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 9.00 FW GoldHEN </button></a>
-<a href="900v3/index.html"><button class="btn" onmouseover="msgs.innerHTML='PS4 9.00 FW Host v3.0 - (FontFaceSet Webkit)'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'"> 9.00 FW v3.0 </button></a>
-<br>
-<button class="btn" onmouseover="msgs.innerHTML='Restore a Host to User&#8217;s Guide without using DNS'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="location.replace('restore/index.html')"> Restore Host </button>
-<br>
-<button class="btn btn-onln" onmouseover="msgs.innerHTML='If you like my work you can support me with a donation.'" onmouseout="msgs.innerHTML='PS4  Exploit Host by GamerHack'" onclick="donations()" style="margin-top: 137px;margin-bottom: 77px;width: 468px;"> For Donations (Only in Cryptocurrencies) </button>
-<h1 style="margin-top: 78px;">Designed by:<a href="https://twitter.com/GamerHack93" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@GamerHack93</a>A special thanks to all the devs on the scene.</h1>
-</div>
-<div id=crypto>
-<h1 style="font-size: 18px;color: yellow;">Donate with Bitcoin (BTC):</h1>
-<img src="btc.jpg" width="150" height="150">
-<br>
-<h1 style="font-size: 18px;">bc1q6cnsykmvem6zgw8wag3ygee0jkhtxj6rkp2nrm</h1>
-<br>
-<h1 style="font-size: 18px;color: yellow;">Donate with Ethereum (ETH):</h1>
-<img src="eth.jpg" width="150" height="150">
-<h1 style="font-size: 18px;">0x7Ae1825ddE196925dB8B7832F436cA0eAeaF932c</h1>
-<button class="btn" onclick="load_menu()"> Return </button>
-</div>
-<script>
-function donations(){
-document.getElementById("crypto").style.display = "block";
-document.getElementById("menu").style.display = "none";
-}
 
-function load_menu(){
-document.getElementById("menu").style.display = "block";
-document.getElementById("crypto").style.display = "none";
+<script>
+var histlength = history.length;
+if(histlength > 2) {
+    history.go(-histlength + 2);
 }
 </script>
+
+<div class="glass-container">
+    <h1 id="msgs">ASO GAMEING CHAMCHAML</h1>
+    <div class="subtitle">PS4 GoldHEN Multi FW Exploit Host</div>
+    
+    <div id="menu">
+        <button class="btn-multi" 
+                onmouseover="msgs.innerHTML='PS4 GoldHEN Host for 5.05 and 7.00 to 14.00 FW'" 
+                onmouseout="msgs.innerHTML='ASO GAMEING CHAMCHAML'" 
+                onclick="location.replace('g2all/index.html')">
+            GoldHEN Multi FW
+        </button>
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">Contact Us</div>
+        <div class="phone-numbers">
+            <span>07708169202</span>
+            <span>07510646547</span>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
