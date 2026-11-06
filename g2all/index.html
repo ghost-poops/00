@@ -42,7 +42,7 @@
     .brand-title {
         font-size: 26px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -51,7 +51,20 @@
     .subtitle {
         font-size: 14px;
         color: #94a3b8;
+        margin-bottom: 15px;
+    }
+    /* مكان عرض الإصدار المكتشف تلقائياً */
+    .fw-badge {
+        display: inline-block;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: #38bdf8;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
         margin-bottom: 25px;
+        letter-spacing: 0.5px;
     }
     #msgs {
         font-size: 16px;
@@ -110,6 +123,9 @@
     <div class="brand-title">ASO GAMEING CHAMCHAMAL</div>
     <div class="subtitle">PS4 GoldHEN Multi FW Exploit Host</div>
     
+    <!-- مكان عرض الإصدار التلقائي -->
+    <div class="fw-badge" id="fwBadge">Detecting Firmware...</div>
+    
     <div id="msgs">Initializing Exploit Environment...</div>
     
     <!-- شريط التقدم الزجاجي -->
@@ -135,6 +151,16 @@ var fwNum = parseFloat(fwVersion);
 
 const progressBar = document.getElementById("progressBar");
 const msgs = document.getElementById("msgs");
+const fwBadge = document.getElementById("fwBadge");
+
+// كتابة الإصدار المكتشف في المكان المخصص فوراً
+if (isPS4) {
+    fwBadge.innerHTML = "PS4 Firmware: v" + fwVersion;
+} else {
+    fwBadge.innerHTML = "Not a PS4 Device / PC Mode";
+    fwBadge.style.borderColor = "rgba(239, 68, 68, 0.3)";
+    fwBadge.style.color = "#f87171";
+}
 
 function updateProgress(percent, text, isError = false, isSuccess = false) {
     progressBar.style.width = percent + "%";
@@ -225,14 +251,12 @@ setTimeout(() => {
                 script.onload = function () {
                     updateProgress(90, "Triggering Payload...");
                     if (onLoadCallback) onLoadCallback();
-                    // إذا تم التحميل بنجاح بدون أخطاء يتم الوصول للهدف
                     setTimeout(() => {
                         updateProgress(100, "JAILBREAK DONE", false, true);
                     }, 1000);
                 };
                 document.head.appendChild(script);
                 
-                // تحديث وهمي تدريجي لملء الشريط في حال نجاح السكربتات
                 setTimeout(() => {
                     if(progressBar.style.width !== "100%") {
                         updateProgress(85, "Finalizing GoldHEN...");
