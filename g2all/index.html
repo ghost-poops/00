@@ -1,10 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="ltr">
 <head>
-<title>PS4 [5.05] 7.00 - 14.00 FW GoldHEN Host by GamerHack</title>
-<link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<title>ASO GAMEING CHAMCHAML - Multi FW Exploit</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+        background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #ffffff;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .glass-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        max-width: 550px;
+        width: 90%;
+    }
+    .brand-title {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+    }
+    .subtitle {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-bottom: 25px;
+    }
+    #msgs {
+        font-size: 16px;
+        color: #38bdf8;
+        font-weight: 600;
+        margin-bottom: 15px;
+        min-height: 25px;
+    }
+    /* تصميم شريط التحميل الزجاجي */
+    .progress-container {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 22px;
+        padding: 3px;
+        margin-bottom: 25px;
+    }
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #38bdf8, #22c55e);
+        border-radius: 7px;
+        transition: width 0.3s ease;
+    }
+    .contact-info {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+    .contact-title {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #64748b;
+        margin-bottom: 10px;
+    }
+    .phone-numbers {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #e2e8f0;
+    }
+    .phone-numbers span {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+</style>
 </head>
 <body>
+
+<div class="glass-container">
+    <div class="brand-title">ASO GAMEING CHAMCHAML</div>
+    <div class="subtitle">PS4 GoldHEN Multi FW Exploit Host</div>
+    
+    <div id="msgs">Initializing Exploit Environment...</div>
+    
+    <!-- شريط التقدم الزجاجي -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">Contact Us</div>
+        <div class="phone-numbers">
+            <span>07708169202</span>
+            <span>07510646547</span>
+        </div>
+    </div>
+</div>
+
 <script>
 var uaFull = navigator.userAgent;
 var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
@@ -12,98 +133,117 @@ var isPS4 = match !== null;
 var fwVersion = isPS4 ? match[1] : "Unknown";
 var fwNum = parseFloat(fwVersion);
 
-function onScriptError() {
-    msgs.innerHTML = "Content not Found! - Clear Browser Data and Re-Install Cache ...";
-}
+const progressBar = document.getElementById("progressBar");
+const msgs = document.getElementById("msgs");
 
-if (!isPS4) {
-    document.addEventListener("DOMContentLoaded", () => {
-        msgs.innerHTML = "Only for PS4 with Firmware 5.05 and 7.00 to 14.00";
-    });
-} else {
-    if (window.applicationCache.status == '0') {
-        if (fwNum == 5.05 || fwNum == 5.07) {
-            window.location.replace("cache505.html");
-        } else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            window.location.replace("cache700.html");
-        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            window.location.replace("cache900.html");
-        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            window.location.replace("cachecss.html");
-        } else if (fwNum >= 11.50 && fwNum <= 14.00) {
-            window.location.replace("cacheslopkit.html");
-        } else {
-            document.addEventListener("DOMContentLoaded", () => {
-                msgs.innerHTML = 'Unsupported Firmware: <span style="color: red;">' + fwVersion + '</span>';
-            });
-        }
-    } else {
-        if (fwNum == 5.05 || fwNum == 5.07) {
-            var script = document.createElement('script');
-            script.src = "505/exploit.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 7.00 && fwNum <= 8.52) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "700/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "900/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            var script = document.createElement('script');
-            script.src = "css/main.js";
-            script.onerror = onScriptError;
-            script.onload = function () {
-                setTimeout(function () {
-                    doJb();
-                }, 500);
-            };
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 11.50 && fwNum <= 12.02) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/chain_lapse.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 12.50 && fwNum <= 13.00) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/chain_poops.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 13.02 && fwNum <= 13.52) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/jb.js?v=19";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-		else if (fwNum == 14.00) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "slopkit/jb2.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
+function updateProgress(percent, text, isError = false, isSuccess = false) {
+    progressBar.style.width = percent + "%";
+    msgs.innerHTML = text;
+    if (isError) {
+        progressBar.style.background = "linear-gradient(90deg, #ef4444, #dc2626)";
+        msgs.style.color = "#f87171";
+    } else if (isSuccess) {
+        progressBar.style.background = "linear-gradient(90deg, #22c55e, #10b981)";
+        msgs.style.color = "#4ade80";
     }
 }
+
+function onScriptError() {
+    updateProgress(100, "JAILBREAK FAILED", true);
+}
+
+// محاكاة التقدم الأولي للتهيئة
+updateProgress(20, "Detecting Firmware Version...");
+
+setTimeout(() => {
+    if (!isPS4) {
+        updateProgress(100, "Only for PS4 with Firmware 5.05 and 7.00 to 14.00", true);
+    } else {
+        if (window.applicationCache.status == '0') {
+            updateProgress(50, "Redirecting to Cache...");
+            if (fwNum == 5.05 || fwNum == 5.07) {
+                window.location.replace("cache505.html");
+            } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                window.location.replace("cache700.html");
+            } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                window.location.replace("cache900.html");
+            } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                window.location.replace("cachecss.html");
+            } else if (fwNum >= 11.50 && fwNum <= 14.00) {
+                window.location.replace("cacheslopkit.html");
+            } else {
+                updateProgress(100, 'Unsupported Firmware: ' + fwVersion, true);
+            }
+        } else {
+            updateProgress(60, "Loading Exploit for FW " + fwVersion + "...");
+            
+            let scriptSrc = "";
+            let isModule = false;
+            let onLoadCallback = null;
+
+            if (fwNum == 5.05 || fwNum == 5.07) {
+                scriptSrc = "505/exploit.js";
+            }
+            else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                scriptSrc = "700/alert.js";
+                isModule = true;
+            }
+            else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                scriptSrc = "900/alert.js";
+                isModule = true;
+            }
+            else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                scriptSrc = "css/main.js";
+                onLoadCallback = function () {
+                    setTimeout(function () {
+                        try { doJb(); } catch(e) { onScriptError(); }
+                    }, 500);
+                };
+            }
+            else if (fwNum >= 11.50 && fwNum <= 12.02) {
+                scriptSrc = "slopkit/chain_lapse.js";
+                isModule = true;
+            }
+            else if (fwNum >= 12.50 && fwNum <= 13.00) {
+                scriptSrc = "slopkit/chain_poops.js";
+                isModule = true;
+            }
+            else if (fwNum >= 13.02 && fwNum <= 13.52) {
+                scriptSrc = "slopkit/jb.js?v=19";
+                isModule = true;
+            }
+            else if (fwNum == 14.00) {
+                scriptSrc = "slopkit/jb2.js";
+                isModule = true;
+            }
+
+            if (scriptSrc) {
+                var script = document.createElement('script');
+                if (isModule) script.type = 'module';
+                script.src = scriptSrc;
+                script.onerror = onScriptError;
+                script.onload = function () {
+                    updateProgress(90, "Triggering Payload...");
+                    if (onLoadCallback) onLoadCallback();
+                    // إذا تم التحميل بنجاح بدون أخطاء يتم الوصول للهدف
+                    setTimeout(() => {
+                        updateProgress(100, "JAILBREAK DONE", false, true);
+                    }, 1000);
+                };
+                document.head.appendChild(script);
+                
+                // تحديث وهمي تدريجي لملء الشريط في حال نجاح السكربتات
+                setTimeout(() => {
+                    if(progressBar.style.width !== "100%") {
+                        updateProgress(85, "Finalizing GoldHEN...");
+                    }
+                }, 2000);
+            } else {
+                updateProgress(100, "Unsupported Firmware Version", true);
+            }
+        }
+    }
+}, 800);
 </script>
-<h1>PS4 [5.05] 7.00 - 14.00 FW GoldHEN Host by GamerHack</h1>
-<hr>
-<br>
-<h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Loading GoldHEN v2.4b18.13... Please Wait</h1>
-<h1 style="margin-top: 43px;">Special Thanks to:<a href="https://twitter.com/_AlAzif" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@_AlAzif</a>ChendoChap<a href="https://x.com/Kameleonre_" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Kameleonre_</a>SiSTR0 Abc</h1>
 </body>
 </html>
