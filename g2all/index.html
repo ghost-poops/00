@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <title>ASO GAMING CHAMCHAMAL - Multi FW Exploit</title>
@@ -173,7 +173,6 @@ function onScriptError() {
     updateProgress(100, "JAILBREAK FAILED", true);
 }
 
-// البدء بنسبة 15%
 updateProgress(15, "Detecting Firmware Version...");
 
 setTimeout(() => {
@@ -240,7 +239,6 @@ setTimeout(() => {
             }
 
             if (scriptSrc) {
-                // رفع الشريط تدريجياً لـ 70% أثناء جلب الملف
                 setTimeout(() => {
                     updateProgress(70, "Preparing Payload Environment...");
                 }, 1000);
@@ -253,7 +251,6 @@ setTimeout(() => {
                     updateProgress(90, "Triggering Payload...");
                     if (onLoadCallback) onLoadCallback();
                     
-                    // يصل إلى 100% فقط عند اكتمال التحميل الفعلي للسكربت
                     setTimeout(() => {
                         updateProgress(100, "JAILBREAK DONE", false, true);
                     }, 400);
