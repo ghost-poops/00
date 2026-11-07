@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html manifest="css.manifest">
 <head>
-<title>PS4 [5.05] 7.00 - 14.00 FW GoldHEN Host by GamerHack</title>
+<meta charset="UTF-8">
+<title>ASOGAMING PS4 Host</title>
 <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<script>
-history.replaceState(null,null,'index.html');var histlength=history.length;history.go(-histlength);
-function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Installing Offline Cache: " + Percent + "%";}
-function DisplayCacheProgress(){window.msgs.innerHTML="Cache Installed Successfully ✔";setTimeout(function(){window.msgs.innerHTML="Now Close And Re-Open Your Browser ...";},1500);}
-window.applicationCache.addEventListener("progress",DLProgress,false);
-window.applicationCache.oncached=function(e){DisplayCacheProgress();};
-window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
-window.applicationCache.onerror=function(e){window.msgs.innerHTML="Error Installing Cache! - Clear and Re-Open Your Browser ...";};
-</script>
-<h1>PS4 [5.05] 7.00 - 14.00 FW GoldHEN Host by GamerHack</h1>
-<hr>
-<br>
-<h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Starting Cache Installation...</h1>
-<h1 style="margin-top: 43px;">Special Thanks to:<a href="https://twitter.com/_AlAzif" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@_AlAzif</a>ChendoChap<a href="https://x.com/Kameleonre_" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Kameleonre_</a>SiSTR0 Abc</h1>
-</body>
-</html>
+<style>
+  body {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* تصميم المنظر الزجاجي (Glassmorphism) */
+  .glass-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin: 10px 0 20px 0;
+    letter-spacing: 1px;
+    color: #f8fafc;
+  }
+
+  #msgs {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #38bdf8;
+    font-weight: bold;
+  }
+
+  .footer-brand {
+    
