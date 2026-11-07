@@ -53,7 +53,6 @@
         color: #94a3b8;
         margin-bottom: 15px;
     }
-    /* مكان عرض الإصدار المكتشف تلقائياً */
     .fw-badge {
         display: inline-block;
         background: rgba(56, 189, 248, 0.1);
@@ -73,7 +72,6 @@
         margin-bottom: 15px;
         min-height: 25px;
     }
-    /* تصميم شريط التحميل الزجاجي */
     .progress-container {
         width: 100%;
         background: rgba(255, 255, 255, 0.08);
@@ -88,7 +86,7 @@
         width: 0%;
         background: linear-gradient(90deg, #38bdf8, #22c55e);
         border-radius: 7px;
-        transition: width 0.3s ease;
+        transition: width 0.4s ease;
     }
     .contact-info {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -123,12 +121,10 @@
     <div class="brand-title">ASO GAMING CHAMCHAMAL</div>
     <div class="subtitle">PS4 GoldHEN Multi FW Exploit Host</div>
     
-    <!-- مكان عرض الإصدار التلقائي -->
     <div class="fw-badge" id="fwBadge">Detecting Firmware...</div>
     
     <div id="msgs">Initializing Exploit Environment...</div>
     
-    <!-- شريط التقدم الزجاجي -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -153,7 +149,6 @@ const progressBar = document.getElementById("progressBar");
 const msgs = document.getElementById("msgs");
 const fwBadge = document.getElementById("fwBadge");
 
-// كتابة الإصدار المكتشف في المكان المخصص فوراً
 if (isPS4) {
     fwBadge.innerHTML = "PS4 Firmware: v" + fwVersion;
 } else {
@@ -178,30 +173,33 @@ function onScriptError() {
     updateProgress(100, "JAILBREAK FAILED", true);
 }
 
-// محاكاة التقدم الأولي للتهيئة
-updateProgress(20, "Detecting Firmware Version...");
+// البدء بنسبة 15%
+updateProgress(15, "Detecting Firmware Version...");
 
 setTimeout(() => {
     if (!isPS4) {
         updateProgress(100, "Only for PS4 with Firmware 5.05 and 7.00 to 14.00", true);
     } else {
         if (window.applicationCache.status == '0') {
-            updateProgress(50, "Redirecting to Cache...");
-            if (fwNum == 5.05 || fwNum == 5.07) {
-                window.location.replace("cache505.html");
-            } else if (fwNum >= 7.00 && fwNum <= 8.52) {
-                window.location.replace("cache700.html");
-            } else if (fwNum >= 9.00 && fwNum <= 9.60) {
-                window.location.replace("cache900.html");
-            } else if (fwNum >= 10.00 && fwNum <= 11.02) {
-                window.location.replace("cachecss.html");
-            } else if (fwNum >= 11.50 && fwNum <= 14.00) {
-                window.location.replace("cacheslopkit.html");
-            } else {
-                updateProgress(100, 'Unsupported Firmware: ' + fwVersion, true);
-            }
+            updateProgress(60, "Redirecting to Cache...");
+            setTimeout(() => {
+                updateProgress(100, "Ready...", false, true);
+                if (fwNum == 5.05 || fwNum == 5.07) {
+                    window.location.replace("cache505.html");
+                } else if (fwNum >= 7.00 && fwNum <= 8.52) {
+                    window.location.replace("cache700.html");
+                } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+                    window.location.replace("cache900.html");
+                } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+                    window.location.replace("cachecss.html");
+                } else if (fwNum >= 11.50 && fwNum <= 14.00) {
+                    window.location.replace("cacheslopkit.html");
+                } else {
+                    updateProgress(100, 'Unsupported Firmware: ' + fwVersion, true);
+                }
+            }, 400);
         } else {
-            updateProgress(60, "Loading Exploit for FW " + fwVersion + "...");
+            updateProgress(40, "Loading Exploit for FW " + fwVersion + "...");
             
             let scriptSrc = "";
             let isModule = false;
@@ -221,9 +219,7 @@ setTimeout(() => {
             else if (fwNum >= 10.00 && fwNum <= 11.02) {
                 scriptSrc = "css/main.js";
                 onLoadCallback = function () {
-                    setTimeout(function () {
-                        try { doJb(); } catch(e) { onScriptError(); }
-                    }, 500);
+                    try { doJb(); } catch(e) { onScriptError(); }
                 };
             }
             else if (fwNum >= 11.50 && fwNum <= 12.02) {
@@ -244,6 +240,11 @@ setTimeout(() => {
             }
 
             if (scriptSrc) {
+                // رفع الشريط تدريجياً لـ 70% أثناء جلب الملف
+                setTimeout(() => {
+                    updateProgress(70, "Preparing Payload Environment...");
+                }, 1000);
+
                 var script = document.createElement('script');
                 if (isModule) script.type = 'module';
                 script.src = scriptSrc;
@@ -251,23 +252,19 @@ setTimeout(() => {
                 script.onload = function () {
                     updateProgress(90, "Triggering Payload...");
                     if (onLoadCallback) onLoadCallback();
+                    
+                    // يصل إلى 100% فقط عند اكتمال التحميل الفعلي للسكربت
                     setTimeout(() => {
                         updateProgress(100, "JAILBREAK DONE", false, true);
-                    }, 1000);
+                    }, 400);
                 };
                 document.head.appendChild(script);
-                
-                setTimeout(() => {
-                    if(progressBar.style.width !== "100%") {
-                        updateProgress(85, "Finalizing GoldHEN...");
-                    }
-                }, 2000);
             } else {
                 updateProgress(100, "Unsupported Firmware Version", true);
             }
         }
     }
-}, 800);
+}, 500);
 </script>
 </body>
 </html>
